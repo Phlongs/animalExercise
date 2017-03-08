@@ -24,6 +24,8 @@ function displayAnimalInfo() {
             animalImage.attr("data-animate", results[i].images.fixed_height.url);
             animalImage.attr("data-state", "still");
             animalImage.addClass("gif");
+            animalImage.attr("width", "300px");
+            animalImage.attr("height", "200px");
 
             $(".gif").on("click", function() {
       // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
@@ -65,6 +67,7 @@ function displayAnimalInfo() {
         a.addClass("animal");
         // Adding a data-attribute
         a.attr("data-name", animal[i]);
+        
         // Providing the initial button text
         a.text(animal[i]);
         // Adding the button to the buttons-view div
