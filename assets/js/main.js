@@ -1,6 +1,6 @@
-// Initial array of movies
+// Initial array of animals
 var animal = ["bird", "snake", "pig", "lion"];
-// Function for displaying movie data
+// Function for displaying animal data
 function displayAnimalInfo() {
   var animalSelect = $(this).attr("data-name");
   var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animalSelect + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -55,15 +55,15 @@ function displayAnimalInfo() {
 
 
   function renderButtons() {
-        // Deleting the movies prior to adding new movies
+        // Deleting the animal prior to adding new animal
         // (this is necessary otherwise you will have repeat buttons)
     $("#animalButtons").empty();
-        // Looping through the array of movies
+        // Looping through the array of animal
       for (var i = 0; i < animal.length; i++) {
-        // Then dynamicaly generating buttons for each movie in the array
+        // Then dynamicaly generating buttons for each animal in the array
         // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
         var a = $("<button>");
-        // Adding a class of movie to our button
+        // Adding a class of animal to our button
         a.addClass("animal");
         // Adding a data-attribute
         a.attr("data-name", animal[i]);
@@ -74,17 +74,17 @@ function displayAnimalInfo() {
         $("#animalButtons").append(a);
       }
     }
-      // This function handles events where a movie button is clicked
+      // This function handles events where a animal button is clicked
       $("#addAnimal").on("click", function(event) {
         event.preventDefault();
         // This line grabs the input from the textbox
         var inputAnimal = $("#animal-input").val().trim();
-        // Adding movie from the textbox to our array
+        // Adding animal from the textbox to our array
         animal.push(inputAnimal);
-        // Calling renderButtons which handles the processing of our movie array
+        // Calling renderButtons which handles the processing of our animal array
         renderButtons();
       });
-      // Adding a click event listener to all elements with a class of "movie"
+      // Adding a click event listener to all elements with a class of "animal"
       $(document).on("click", ".animal", displayAnimalInfo);
       // Calling the renderButtons function to display the intial buttons
       renderButtons();
